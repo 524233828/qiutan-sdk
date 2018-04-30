@@ -45,13 +45,20 @@ class Match extends Cache
 
             $res = $client->request("GET", (string)$url);
 
-            return json_encode(
-                simplexml_load_string(
-                    (string)$res->getBody(),
-                    'SimpleXMLElement',
-                    LIBXML_NOCDATA
-                )
-            );
+            $str = (string)$res->getBody();
+
+            if(xml_valid($str)){
+                return json_encode(
+                    simplexml_load_string(
+                        $str,
+                        'SimpleXMLElement',
+                        LIBXML_NOCDATA
+                    )
+                );
+            }else{
+                return json_encode([]);
+            }
+
         }, $cache_time);
 
         return json_decode($res, true);
