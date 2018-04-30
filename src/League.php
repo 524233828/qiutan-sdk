@@ -10,25 +10,28 @@ namespace Qiutan;
 
 use GuzzleHttp\Client;
 
-class League
+class League extends Cache
 {
     public static function get()
     {
-        $client = new Client();
+        $cache_time = 3600;
+        $res = RedisHelper::get(Constant::LEAGUE_CACHE, self::$redis, function (){
+            $client = new Client();
 
-        $url = Constant::SDK_DOMAIN . "/zq/League_XML.aspx";
+            $url = Constant::SDK_DOMAIN . "/zq/League_XML.aspx";
 
-        $res = $client->request("GET", $url);
+            $res = $client->request("GET", $url);
 
-        return json_decode(
-            json_encode(
+            return json_encode(
                 simplexml_load_string(
                     (string)$res->getBody(),
                     'SimpleXMLElement',
                     LIBXML_NOCDATA
                 )
-            )
-            ,true
-        );
+            );
+        }, $cache_time);
+
+        return json_decode($res, true);
+
     }
 }

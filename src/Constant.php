@@ -10,5 +10,9 @@ namespace Qiutan;
 
 class Constant{
 
+    //域名
     const SDK_DOMAIN = "http://interface.win007.com";
+
+    //联赛列表数据缓存
+    const LEAGUE_CACHE = "qiutan:league";
 }
