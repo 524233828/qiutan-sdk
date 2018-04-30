@@ -11,7 +11,7 @@ namespace Qiutan;
 
 use GuzzleHttp\Client;
 
-class Match
+class Match extends Cache
 {
 
     /**
