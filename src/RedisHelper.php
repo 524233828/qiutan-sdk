@@ -12,11 +12,12 @@ class RedisHelper
     /**
      * 获取，若无数据则从getter取
      * @param $key
+     * @param $redis
      * @param \Closure $getter
      * @param null $timeout 存储的时间
      * @return mixed
      */
-    public static function get($key, \Redis $redis, \Closure $getter = null, $timeout = null)
+    public static function get($key, $redis, \Closure $getter = null, $timeout = null)
     {
         $lock_key = $key . ':update:lock';
 
