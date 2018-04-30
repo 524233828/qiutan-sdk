@@ -21,82 +21,93 @@ class Match
      */
     public static function get($date = null, $sclassId = null)
     {
-        $client = new Client();
 
-        $url = new Uri(Constant::SDK_DOMAIN);
-
-        $url->withPath("/zq/BF_XML.aspx");
-
-        $data = [];
+        $params = "";
         if(!empty($date)){
             $data["date"] = $date;
+            $params = $date;
         }
 
         if(empty($date) && !empty($sclassId)){
             $data["sclassid"] = $sclassId;
+            $params = $sclassId;
         }
 
-        $url->withQuery($data);
+        $cache_time = 3600;
+        $res = RedisHelper::get(Constant::MATCH_CACHE.":{$params}", self::$redis, function () use ($data){
+            $client = new Client();
 
-        $res = $client->request("GET", (string)$url);
+            $url = new Uri(Constant::SDK_DOMAIN);
 
-        return json_decode(
-            json_encode(
+            $url->withPath("/zq/BF_XML.aspx");
+
+            $url->withQuery($data);
+
+            $res = $client->request("GET", (string)$url);
+
+            return json_encode(
                 simplexml_load_string(
                     (string)$res->getBody(),
                     'SimpleXMLElement',
                     LIBXML_NOCDATA
                 )
-            )
-            ,true
-        );
+            );
+        }, $cache_time);
+
+        return json_decode($res, true);
     }
 
     public static function getById($id)
     {
-        $client = new Client();
+        $cache_time = 3600;
+        $res = RedisHelper::get(Constant::MATCH_CACHE.":{$id}", self::$redis, function () use ($id){
+            $client = new Client();
 
-        $url = new Uri(Constant::SDK_DOMAIN);
+            $url = new Uri(Constant::SDK_DOMAIN);
 
-        $url->withPath("/zq/BF_XML.aspx");
+            $url->withPath("/zq/BF_XML.aspx");
 
-        $data["id"] = $id;
+            $data["id"] = $id;
 
-        $url->withQuery($data);
+            $url->withQuery($data);
 
-        $res = $client->request("GET", (string)$url);
+            $res = $client->request("GET", (string)$url);
 
-        return json_decode(
-            json_encode(
+            return json_encode(
                 simplexml_load_string(
                     (string)$res->getBody(),
                     'SimpleXMLElement',
                     LIBXML_NOCDATA
                 )
-            )
-            ,true
-        );
+            );
+        }, $cache_time);
+
+        return json_decode($res, true);
     }
 
     public static function modifyRecord()
     {
-        $client = new Client();
 
-        $url = new Uri(Constant::SDK_DOMAIN);
+        $cache_time = 90;
 
-        $url->withPath("/zq/ModifyRecord.aspx");
+        $res = RedisHelper::get(Constant::MATCH_MODIFY_CACHE, self::$redis, function () {
+            $client = new Client();
 
-        $res = $client->request("GET", (string)$url);
+            $url = new Uri(Constant::SDK_DOMAIN);
 
-        return json_decode(
-            json_encode(
+            $url->withPath("/zq/ModifyRecord.aspx");
+
+            $res = $client->request("GET", (string)$url);
+
+            return json_encode(
                 simplexml_load_string(
                     (string)$res->getBody(),
                     'SimpleXMLElement',
                     LIBXML_NOCDATA
                 )
-            )
-            ,true
-        );
+            );
+        },$cache_time);
+
+        return json_decode($res, true);
     }
 }

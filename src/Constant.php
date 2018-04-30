@@ -15,4 +15,10 @@ class Constant{
 
     //联赛列表数据缓存
     const LEAGUE_CACHE = "qiutan:league";
+
+    const TEAM_CACHE = "qiutan:team";
+
+    const MATCH_CACHE = "qiutan:match";
+
+    const MATCH_MODIFY_CACHE = "qiutan:match_modify";
 }
