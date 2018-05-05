@@ -122,7 +122,7 @@ class Match extends Cache
     {
         $cache_time = 10;
 
-        $res = RedisHelper::get(Constant::MATCH_MODIFY_CACHE, self::$redis, function () {
+        $res = RedisHelper::get(Constant::MATCH_CHANGE_CACHE, self::$redis, function () {
             $client = new Client();
 
             $url = new Uri(Constant::SDK_DOMAIN);
