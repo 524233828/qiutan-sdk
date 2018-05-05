@@ -117,4 +117,34 @@ class Match extends Cache
 
         return json_decode($res, true);
     }
+
+    public static function matchChange()
+    {
+        $cache_time = 10;
+
+        $res = RedisHelper::get(Constant::MATCH_MODIFY_CACHE, self::$redis, function () {
+            $client = new Client();
+
+            $url = new Uri(Constant::SDK_DOMAIN);
+
+            $url->withPath("/zq/change.xml");
+
+            $res = $client->request("GET", (string)$url);
+
+            $str = (string)$res->getBody();
+            if(xml_valid($str)){
+                return json_encode(
+                    simplexml_load_string(
+                        $str,
+                        'SimpleXMLElement',
+                        LIBXML_NOCDATA
+                    )
+                );
+            }else{
+                return json_encode([]);
+            }
+        },$cache_time);
+
+        return json_decode($res, true);
+    }
 }
