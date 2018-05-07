@@ -150,7 +150,7 @@ class Match extends Cache
 
     public static function matchChangeLong()
     {
-        $cache_time = 60;
+        $cache_time = 50;
 
         $res = RedisHelper::get(Constant::MATCH_CHANGE_LONG_CACHE, self::$redis, function () {
             $client = new Client();
