@@ -66,7 +66,7 @@ class Match extends Cache
 
     public static function getById($id)
     {
-        $cache_time = 3600;
+        $cache_time = 2;
 
         $keys = md5($id);
         $res = RedisHelper::get(Constant::MATCH_CACHE.":{$keys}", self::$redis, function () use ($id){
