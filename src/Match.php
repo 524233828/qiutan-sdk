@@ -74,7 +74,7 @@ class Match extends Cache
 
             $url = new Uri(Constant::SDK_DOMAIN);
 
-            $url->withPath("/zq/BF_XML.aspx");
+            $url->withPath("/zq/BF_XMLByID.aspx");
 
             $data["id"] = $id;
 
