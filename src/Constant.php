@@ -26,4 +26,6 @@ class Constant{
     const MATCH_CHANGE_LONG_CACHE = "qiutan:match_change_long";
 
     const MATCH_ID_INTERFACE = "qiutan:match_id_interface";
+
+    const ODD_CACHE = "qiutan:odds";
 }
