@@ -14,7 +14,7 @@ use GuzzleHttp\Client;
 class Lottery extends Cache
 {
 
-    public function matchIdInterface()
+    public static function matchIdInterface()
     {
         $cache_time = 600;
 

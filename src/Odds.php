@@ -14,7 +14,7 @@ use GuzzleHttp\Client;
 class Odds extends Cache
 {
 
-    public function odd()
+    public static function odd()
     {
         $cache_time = 60;
 

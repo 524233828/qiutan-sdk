@@ -2,9 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="7b95eda5-81c9-4abd-9de2-12e75005da70" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Odds.php" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Constant.php" afterPath="$PROJECT_DIR$/src/Constant.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Lottery.php" afterPath="$PROJECT_DIR$/src/Lottery.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Odds.php" afterPath="$PROJECT_DIR$/src/Odds.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -29,8 +29,8 @@
       <file leaf-file-name="Match.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Match.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="63" column="39" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="39" />
+            <state relative-caret-position="1169">
+              <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="39" />
               <folding>
                 <element signature="e#7#87#0#PHP" expanded="true" />
               </folding>
@@ -53,8 +53,8 @@
       <file leaf-file-name="Lottery.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Lottery.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="27" column="57" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="27" selection-end-column="57" />
+            <state relative-caret-position="176">
+              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -63,8 +63,8 @@
       <file leaf-file-name="Odds.php" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Odds.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="333">
-              <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+            <state relative-caret-position="201">
+              <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
               <folding />
             </state>
           </provider>
@@ -141,8 +141,8 @@
         <option value="$PROJECT_DIR$/src/Team.php" />
         <option value="$PROJECT_DIR$/src/helpers.php" />
         <option value="$PROJECT_DIR$/src/Match.php" />
-        <option value="$PROJECT_DIR$/src/Lottery.php" />
         <option value="$PROJECT_DIR$/src/Constant.php" />
+        <option value="$PROJECT_DIR$/src/Lottery.php" />
         <option value="$PROJECT_DIR$/src/Odds.php" />
       </list>
     </option>
@@ -318,12 +318,12 @@
       <workItem from="1525785787475" duration="149000" />
       <workItem from="1526201250592" duration="606000" />
       <workItem from="1526467272302" duration="5000" />
-      <workItem from="1526530649027" duration="2393000" />
+      <workItem from="1526530649027" duration="4212000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="27355000" />
+    <option name="totallyTimeSpent" value="29174000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="0" />
@@ -750,16 +750,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Match.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="63" column="39" lean-forward="true" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="39" />
-          <folding>
-            <element signature="e#7#87#0#PHP" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Constant.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="462">
@@ -770,18 +760,28 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Match.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1169">
+          <caret line="63" column="39" lean-forward="false" selection-start-line="63" selection-start-column="8" selection-end-line="63" selection-end-column="39" />
+          <folding>
+            <element signature="e#7#87#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Lottery.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="27" column="57" lean-forward="true" selection-start-line="21" selection-start-column="12" selection-end-line="27" selection-end-column="57" />
+        <state relative-caret-position="176">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="11" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Odds.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="333">
-          <caret line="32" column="24" lean-forward="true" selection-start-line="32" selection-start-column="24" selection-end-line="32" selection-end-column="24" />
+        <state relative-caret-position="201">
+          <caret line="16" column="17" lean-forward="false" selection-start-line="16" selection-start-column="17" selection-end-line="16" selection-end-column="17" />
           <folding />
         </state>
       </provider>
