@@ -179,4 +179,42 @@ class Match extends Cache
 
         return json_decode($res, true);
     }
+
+    public static function matchInfo($id = null)
+    {
+        $cache_time = 90;
+
+        if(!empty($id))
+        {
+            $cache_key = Constant::MATCH_INFO_CACHE.":{$id}";
+        }else{
+            $cache_key = Constant::MATCH_INFO_CACHE;
+        }
+
+        $res = RedisHelper::get($cache_key, self::$redis, function () {
+
+            $client = new Client();
+
+            $url = new Uri(Constant::SDK_DOMAIN);
+
+            $url->withPath("/zq/Injury_new.aspx");
+
+            $res = $client->request("GET", (string)$url);
+
+            $str = (string)$res->getBody();
+            if(xml_valid($str)){
+                return json_encode(
+                    simplexml_load_string(
+                        $str,
+                        'SimpleXMLElement',
+                        LIBXML_NOCDATA
+                    )
+                );
+            }else{
+                return json_encode([]);
+            }
+        },$cache_time);
+
+        return json_decode($res, true);
+    }
 }

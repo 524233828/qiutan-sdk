@@ -22,6 +22,8 @@ class Constant{
 
     const MATCH_MODIFY_CACHE = "qiutan:match_modify";
 
+    const MATCH_INFO_CACHE = "qiutan:match_info";
+
     const MATCH_CHANGE_CACHE = "qiutan:match_change";
     const MATCH_CHANGE_LONG_CACHE = "qiutan:match_change_long";
 
