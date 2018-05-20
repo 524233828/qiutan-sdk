@@ -191,13 +191,15 @@ class Match extends Cache
             $cache_key = Constant::MATCH_INFO_CACHE;
         }
 
-        $res = RedisHelper::get($cache_key, self::$redis, function () {
+        $res = RedisHelper::get($cache_key, self::$redis, function () use ($id) {
 
             $client = new Client();
 
             $url = new Uri(Constant::SDK_DOMAIN);
 
             $url->withPath("/zq/Injury_new.aspx");
+
+            $url->withQuery(["ID" => $id]);
 
             $res = $client->request("GET", (string)$url);
 
