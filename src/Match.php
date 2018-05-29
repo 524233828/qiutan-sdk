@@ -66,7 +66,7 @@ class Match extends Cache
 
     public static function getById($id)
     {
-        $cache_time = 2;
+        $cache_time = 120;
 
         $keys = md5($id);
         $res = RedisHelper::get(Constant::MATCH_CACHE.":{$keys}", self::$redis, function () use ($id){
@@ -82,13 +82,18 @@ class Match extends Cache
 
             $res = $client->request("GET", (string)$url);
 
-            return json_encode(
-                simplexml_load_string(
-                    (string)$res->getBody(),
-                    'SimpleXMLElement',
-                    LIBXML_NOCDATA
-                )
-            );
+            $str = (string)$res->getBody();
+            if(xml_valid($str)){
+                return json_encode(
+                    simplexml_load_string(
+                        $str,
+                        'SimpleXMLElement',
+                        LIBXML_NOCDATA
+                    )
+                );
+            }else{
+                return json_encode([]);
+            }
         }, $cache_time);
 
         return json_decode($res, true);
@@ -108,13 +113,18 @@ class Match extends Cache
 
             $res = $client->request("GET", (string)$url);
 
-            return json_encode(
-                simplexml_load_string(
-                    (string)$res->getBody(),
-                    'SimpleXMLElement',
-                    LIBXML_NOCDATA
-                )
-            );
+            $str = (string)$res->getBody();
+            if(xml_valid($str)){
+                return json_encode(
+                    simplexml_load_string(
+                        $str,
+                        'SimpleXMLElement',
+                        LIBXML_NOCDATA
+                    )
+                );
+            }else{
+                return json_encode([]);
+            }
         },$cache_time);
 
         return json_decode($res, true);
